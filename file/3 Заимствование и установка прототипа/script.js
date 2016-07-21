@@ -11,7 +11,7 @@ function  Human(name,age,weight) {
 }	
 
 function  Female(name,age,weight,isNice,dressedIn ) {
-	Human.apply(this,name,age,weight);
+	Human.apply(this,arguments);
 	this.name=name,
 	this.age=age,
 	this.weight=weight;
@@ -26,7 +26,7 @@ function  Female(name,age,weight,isNice,dressedIn ) {
 }	
 
 function  Male(name,age,weight,isRich) {
-	Human.apply(this,name,age,weight);
+	Human.apply(this,arguments);
 	this.name=name,
 	this.age=age,
 	this.weight=weight;
@@ -46,12 +46,13 @@ var Anon = new Human("Anon",29,60);
 Anon.changeName();
 console.log(Anon);
 
-Female.prototype=new Human;
+Female.prototype=new Human();
 var Masha = new Female("Masha",30,60,false,"none");
 Masha.makeUp();
+Masha.changeName();
 console.log(Masha);
 
-Male.prototype=new Human;
+Male.prototype=new Human();
 var Ivan = new Male();
 Ivan.isBelovedByFem();
 Ivan.changeName();
